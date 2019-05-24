@@ -1,22 +1,32 @@
+/* eslint-disable no-dupe-keys */
 /* eslint-disable no-unused-vars */
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/car', { useNewUrlParser: true });
 const Schema = mongoose.Schema;
 
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function () {
 
-    console.log("We 're connected! ^__^")
-});
-//This For USer Information YY
+// mongoose.connect('mongodb://localhost/myNewData', { useNewUrlParser: true ,createIndexes : true });
+
+// const db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function () {
+
+//     console.log("good job you are connected :D")
+// });
+//This For User Information YY
 const usersSchema = new Schema({
+<<<<<<< HEAD:database-mongo/dbmongo.js
    
         firstName: { type: String, trim: true, required: true },
         lastName: { type: String, trim: true, required: true },
         userName: { type: String, trim: true, required: true },
         
     
+=======
+        userName : {type : String , required : true},    
+        firstName: { type: String, trim: true, required: true },
+        lastName: { type: String, trim: true, required: true },
+
+>>>>>>> 8abf6fbc833503795709112a094a76c7ae276eba:Database/db.js
     email: {
         type: String,
         required: [true, 'Email Field is required'],
@@ -24,25 +34,38 @@ const usersSchema = new Schema({
         match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
     },
 
-    password: { type: String, required: true }
+    password: { type: String, required: true },
+
+    date : {
+        type : Date ,
+        default : Date.now
+    }
 });
 
 //This Schema for USer Information about the car
 const shop = new Schema({
 
-    shopname: { type: String, required: true },
+    shopname:     { type: String, required: true },
     shoplocation: { type: String, coordinates: [Number] },
     workkinghour: { type: Number },
+
+    specialties:  { type: String },
+    phoneNumber:  { type: Number, required: true },
+
+
+
+
+
     specialties: { type: String },
     phoneNumber: { type: Number, required: true }
+
 });
 
 // const test = new usersSchema({firstName : "yazan" ,lastName : "Najjar" , email : "YAZANANANANAN" , phoneNumber: 123123 , password : "ASSAD" })
 
 
-
-const user = mongoose.model('users', usersSchema);
-const shops = mongoose.model('shopinformation', shop);
+const users = mongoose.model('users', usersSchema);
+const shops = mongoose.model('shops', shop);
 
 
 
@@ -52,8 +75,10 @@ let save = (data => {
 
         var obj = {
 
-            username: data[i].username,
-            email: data[i].email,
+           username: data[i].username,
+            firstName : data[i].firstName,
+            lastName : data[i].lastName,
+           email: data[i].email,
             password: data[i].password
         }
 
@@ -63,5 +88,5 @@ let save = (data => {
 })
 
 
-module.exports.user = user;
+module.exports.users = users;
 module.exports.shop = shop;
