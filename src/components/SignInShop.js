@@ -1,6 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
-import bootstrap from '';
+import bootstrap from 'bootstrap';
 import {
     BrowserRouter as Router,
     Route,

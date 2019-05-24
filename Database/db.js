@@ -14,19 +14,10 @@ const Schema = mongoose.Schema;
 // });
 //This For User Information YY
 const usersSchema = new Schema({
-<<<<<<< HEAD:database-mongo/dbmongo.js
-   
-        firstName: { type: String, trim: true, required: true },
-        lastName: { type: String, trim: true, required: true },
-        userName: { type: String, trim: true, required: true },
-        
-    
-=======
         userName : {type : String , required : true},    
         firstName: { type: String, trim: true, required: true },
         lastName: { type: String, trim: true, required: true },
 
->>>>>>> 8abf6fbc833503795709112a094a76c7ae276eba:Database/db.js
     email: {
         type: String,
         required: [true, 'Email Field is required'],

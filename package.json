@@ -19,7 +19,14 @@
     "popper.js": "^1.15.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+<<<<<<< HEAD
     "react-scripts": "^3.0.1"
+=======
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "^3.0.1",
+    "semantic-ui-react": "^0.87.1",
+    "webpack-cli": "^3.3.2"
+>>>>>>> 8abf6fbc833503795709112a094a76c7ae276eba
   },
   "scripts": {
     "server": "node-env-run server --exec nodemon | pino-colada",
